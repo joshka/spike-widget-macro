@@ -1,6 +1,7 @@
 # Derive Widget Macro
 
-A small PoC for deriving Ratatui `Widget` trait from a struct.
+A small PoC for deriving Ratatui `Widget` trait from a struct. Inspired by:
+<https://users.rust-lang.org/t/writing-similar-code-for-each-field-in-struct-without-derive/108786>.
 
 Given the following type:
 
