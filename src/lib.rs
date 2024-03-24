@@ -17,11 +17,8 @@ pub fn derive_widget(input: TokenStream) -> TokenStream {
                 .unwrap_or(0);
             let fields = data.fields.iter().map(|field| {
                 let name = &field.ident.as_ref().expect("struct fields must have names");
-                // obviously replace this with actual rendering logic
                 match &field.ty {
-                    syn::Type::Path(path)
-                        if path.path.segments.last().unwrap().ident == "String" =>
-                    {
+                    syn::Type::Path(path) if path.path.segments[0].ident == "String" => {
                         render_string_field(name, max_label_length)
                     }
                     _ => panic!("Widget derive only works on structs with string fields"),
